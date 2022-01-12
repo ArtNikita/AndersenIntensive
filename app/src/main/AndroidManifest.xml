@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndersenIntensive">
         <activity
-            android:name=".MainActivity"
+            android:name=".pages.second_homework.SecondHomeworkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

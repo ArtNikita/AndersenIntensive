@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndersenIntensive</string>
+    <string name="first_homework_description">1. The first homework was to initialize the project through the console.</string>
+    <string name="second_homework_description">2. Second homework is here. (touch me to watch)</string>
+    <string name="second_homework_logging_callbacks_notification">This activity lifecycle callbacks are logged.</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero">Zero</string>
+    <string name="toast">Toast</string>
 </resources>
