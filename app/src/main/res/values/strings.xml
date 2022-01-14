@@ -7,4 +7,8 @@
     <string name="minus">-</string>
     <string name="zero">Zero</string>
     <string name="toast">Toast</string>
+    <string name="third_homework_description">3. Third homework is here. (touch me to watch)</string>
+    <string name="image_url_edit_text_hint">Enter image url</string>
+    <string name="load_image">Load image</string>
+    <string name="loaded_image">Loaded image</string>
 </resources>
