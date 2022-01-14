@@ -11,4 +11,5 @@
     <string name="image_url_edit_text_hint">Enter image url</string>
     <string name="load_image">Load image</string>
     <string name="loaded_image">Loaded image</string>
+    <string name="loading_error">Loading error</string>
 </resources>
