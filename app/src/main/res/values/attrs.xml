@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnalogClockView">
+        <attr name="frameColor" format="color" />
+        <attr name="frameStrokeWidth" format="float" />
+        <attr name="secondArrowColor" format="color" />
+        <attr name="minuteArrowColor" format="color" />
+        <attr name="hourArrowColor" format="color" />
+        <attr name="secondArrowWidth" format="float" />
+        <attr name="minuteArrowWidth" format="float" />
+        <attr name="hourArrowWidth" format="float" />
+        <attr name="stickWidth" format="float" />
+        <attr name="secondArrowPaddingRatio" format="float" />
+        <attr name="minuteArrowPaddingRatio" format="float" />
+        <attr name="hourArrowPaddingRatio" format="float" />
+    </declare-styleable>
+</resources>

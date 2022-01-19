@@ -3,9 +3,8 @@ package ru.nikitaartamonov.andersenintensive.pages.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import by.kirich1409.viewbindingdelegate.viewBinding
-import ru.nikitaartamonov.andersenintensive.R
 import ru.nikitaartamonov.andersenintensive.databinding.ActivityMainBinding
+import ru.nikitaartamonov.andersenintensive.pages.forth_homework.ForthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.second_homework.SecondHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.third_homework.ThirdHomeworkActivity
 
@@ -27,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.thirdHomeworkMenuTextView.setOnClickListener {
             startActivity(Intent(this, ThirdHomeworkActivity::class.java))
+        }
+        binding.forthHomeworkMenuTextView.setOnClickListener {
+            startActivity(Intent(this, ForthHomeworkActivity::class.java))
         }
     }
 }

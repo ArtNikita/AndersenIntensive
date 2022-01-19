@@ -25,6 +25,11 @@
             style="@style/HomeworkMenuTextView"
             android:text="@string/third_homework_description"/>
 
+        <TextView
+            android:id="@+id/forth_homework_menu_text_view"
+            style="@style/HomeworkMenuTextView"
+            android:text="@string/forth_homework_description"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.core.widget.NestedScrollView>
