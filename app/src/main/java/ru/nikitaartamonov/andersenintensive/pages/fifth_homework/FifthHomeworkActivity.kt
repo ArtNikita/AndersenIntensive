@@ -7,7 +7,7 @@ import ru.nikitaartamonov.andersenintensive.R
 
 private const val CONTACTS_KEY = "CONTACTS_KEY"
 
-class FifthHomeworkActivity : AppCompatActivity(), OnContactClickListener {
+class FifthHomeworkActivity : AppCompatActivity(), OnContactClickListener, ContactDetailContract {
 
     private lateinit var contacts: List<Contact>
 
@@ -59,5 +59,19 @@ class FifthHomeworkActivity : AppCompatActivity(), OnContactClickListener {
             )
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun saveContact(currentContact: Contact, modifiedContact: Contact) {
+        val contactIndex = contacts.indexOf(currentContact)
+        contacts[contactIndex].name = modifiedContact.name
+        contacts[contactIndex].surname = modifiedContact.surname
+        contacts[contactIndex].number = modifiedContact.number
+        notifyContactsListFragment(modifiedContact, contactIndex)
+    }
+
+    private fun notifyContactsListFragment(modifiedContact: Contact, contactIndex: Int) {
+        val contactsListFragment = supportFragmentManager
+            .findFragmentById(R.id.contacts_list_fragment_container) as ContactsListFragment
+        contactsListFragment.updateContact(modifiedContact, contactIndex)
     }
 }

@@ -21,6 +21,14 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_list) {
     }
     private lateinit var listener: OnContactClickListener
 
+    fun updateContact(modifiedContact: Contact, index: Int){
+        contacts[index].name = modifiedContact.name
+        contacts[index].surname = modifiedContact.surname
+        contacts[index].number = modifiedContact.number
+        binding.contactsLinearLayout.removeAllViews()
+        inflateContacts()
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val launchActivity = requireActivity()
