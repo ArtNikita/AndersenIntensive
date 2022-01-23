@@ -14,6 +14,21 @@ class FifthHomeworkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fifth_homework)
         initContactsList(savedInstanceState)
+
+        if (savedInstanceState == null) {
+            startContactsListFragment()
+        }
+    }
+
+    private fun startContactsListFragment() {
+        supportFragmentManager
+            .beginTransaction()
+            .add(
+                R.id.contacts_list_fragment_container,
+                ContactsListFragment.newInstance(contacts),
+                ContactsListFragment::class.java.simpleName
+            )
+            .commit()
     }
 
     private fun initContactsList(savedInstanceState: Bundle?) {
