@@ -14,4 +14,7 @@
     <string name="loading_error">Loading error</string>
     <string name="forth_homework_description">4. Forth homework is here. (touch me to watch)</string>
     <string name="fifth_homework_description">5. Fifth homework is here. (touch me to watch)</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="phone_number">Phone number</string>
 </resources>

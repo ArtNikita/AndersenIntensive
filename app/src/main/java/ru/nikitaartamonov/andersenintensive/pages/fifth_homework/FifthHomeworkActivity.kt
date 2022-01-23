@@ -2,11 +2,12 @@ package ru.nikitaartamonov.andersenintensive.pages.fifth_homework
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import ru.nikitaartamonov.andersenintensive.R
 
 private const val CONTACTS_KEY = "CONTACTS_KEY"
 
-class FifthHomeworkActivity : AppCompatActivity() {
+class FifthHomeworkActivity : AppCompatActivity(), OnContactClickListener {
 
     private lateinit var contacts: List<Contact>
 
@@ -25,8 +26,7 @@ class FifthHomeworkActivity : AppCompatActivity() {
             .beginTransaction()
             .add(
                 R.id.contacts_list_fragment_container,
-                ContactsListFragment.newInstance(contacts),
-                ContactsListFragment::class.java.simpleName
+                ContactsListFragment.newInstance(contacts)
             )
             .commit()
     }
@@ -46,5 +46,18 @@ class FifthHomeworkActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelableArrayList(CONTACTS_KEY, ArrayList(contacts))
+    }
+
+    override fun onClick(contact: Contact) {
+        supportFragmentManager
+            .popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.contact_details_fragment_container,
+                ContactDetailsFragment.newInstance(contact)
+            )
+            .addToBackStack(null)
+            .commit()
     }
 }

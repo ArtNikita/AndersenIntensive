@@ -1,5 +1,6 @@
 package ru.nikitaartamonov.andersenintensive.pages.fifth_homework
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,17 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_list) {
         arguments?.getParcelableArrayList(CONTACTS_KEY)
             ?: throw IllegalStateException("Contacts list should be provided")
     }
+    private lateinit var listener: OnContactClickListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val launchActivity = requireActivity()
+        if (launchActivity is OnContactClickListener) {
+            listener = launchActivity
+        } else {
+            throw IllegalStateException("Launch activity should implement OnContactClickListener")
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +45,7 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_list) {
                     val fullName = "${contact.name} ${contact.surname}"
                     binding.contactFullName.text = fullName
                     binding.contactPhoneNumber.text = contact.number
+                    binding.contactEntityCardView.setOnClickListener { listener.onClick(contact) }
                 }
             binding.contactsLinearLayout.addView(currentContact)
         }
