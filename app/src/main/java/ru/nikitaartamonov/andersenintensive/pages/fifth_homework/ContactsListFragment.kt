@@ -21,10 +21,7 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_list) {
     }
     private lateinit var listener: OnContactClickListener
 
-    fun updateContact(modifiedContact: Contact, index: Int){
-        contacts[index].name = modifiedContact.name
-        contacts[index].surname = modifiedContact.surname
-        contacts[index].number = modifiedContact.number
+    fun updateContact(){
         binding.contactsLinearLayout.removeAllViews()
         inflateContacts()
     }

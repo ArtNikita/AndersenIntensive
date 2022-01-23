@@ -66,12 +66,12 @@ class FifthHomeworkActivity : AppCompatActivity(), OnContactClickListener, Conta
         contacts[contactIndex].name = modifiedContact.name
         contacts[contactIndex].surname = modifiedContact.surname
         contacts[contactIndex].number = modifiedContact.number
-        notifyContactsListFragment(modifiedContact, contactIndex)
+        notifyContactsListFragment()
     }
 
-    private fun notifyContactsListFragment(modifiedContact: Contact, contactIndex: Int) {
+    private fun notifyContactsListFragment() {
         val contactsListFragment = supportFragmentManager
             .findFragmentById(R.id.contacts_list_fragment_container) as ContactsListFragment
-        contactsListFragment.updateContact(modifiedContact, contactIndex)
+        contactsListFragment.updateContact()
     }
 }
