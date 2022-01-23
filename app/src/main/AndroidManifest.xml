@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndersenIntensive">
         <activity
+            android:name=".pages.fifth_homework.FifthHomeworkActivity"
+            android:exported="false" />
+        <activity
             android:name=".pages.forth_homework.ForthHomeworkActivity"
             android:exported="false" />
         <activity

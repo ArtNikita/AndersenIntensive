@@ -18,17 +18,22 @@
         <TextView
             android:id="@+id/second_homework_menu_text_view"
             style="@style/HomeworkMenuTextView"
-            android:text="@string/second_homework_description"/>
+            android:text="@string/second_homework_description" />
 
         <TextView
             android:id="@+id/third_homework_menu_text_view"
             style="@style/HomeworkMenuTextView"
-            android:text="@string/third_homework_description"/>
+            android:text="@string/third_homework_description" />
 
         <TextView
             android:id="@+id/forth_homework_menu_text_view"
             style="@style/HomeworkMenuTextView"
-            android:text="@string/forth_homework_description"/>
+            android:text="@string/forth_homework_description" />
+
+        <TextView
+            android:id="@+id/fifth_homework_menu_text_view"
+            style="@style/HomeworkMenuTextView"
+            android:text="@string/fifth_homework_description" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

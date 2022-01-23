@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.nikitaartamonov.andersenintensive.databinding.ActivityMainBinding
+import ru.nikitaartamonov.andersenintensive.pages.fifth_homework.FifthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.forth_homework.ForthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.second_homework.SecondHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.third_homework.ThirdHomeworkActivity
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.forthHomeworkMenuTextView.setOnClickListener {
             startActivity(Intent(this, ForthHomeworkActivity::class.java))
+        }
+        binding.fifthHomeworkMenuTextView.setOnClickListener {
+            startActivity(Intent(this, FifthHomeworkActivity::class.java))
         }
     }
 }
