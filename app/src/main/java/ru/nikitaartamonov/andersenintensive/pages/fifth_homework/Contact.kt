@@ -9,5 +9,6 @@ data class Contact(
     var number: String,
     var name: String,
     var surname: String,
+    var imageUrl: String = "",
     val id: String = UUID.randomUUID().toString()
 ) : Parcelable
