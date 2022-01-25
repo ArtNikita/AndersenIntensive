@@ -18,6 +18,15 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        initViewModel()
+        viewModel.onViewIsReady()
+    }
+
+    private fun initViewModel() {
+        viewModel.setContactsLiveData.observe(viewLifecycleOwner){ contacts ->
+            adapter.contactsList = contacts
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun initRecyclerView() {
