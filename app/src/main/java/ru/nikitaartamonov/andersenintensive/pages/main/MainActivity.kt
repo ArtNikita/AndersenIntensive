@@ -7,6 +7,7 @@ import ru.nikitaartamonov.andersenintensive.databinding.ActivityMainBinding
 import ru.nikitaartamonov.andersenintensive.pages.fifth_homework.FifthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.forth_homework.ForthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.second_homework.SecondHomeworkActivity
+import ru.nikitaartamonov.andersenintensive.pages.sixth_homework.SixthHomeworkActivity
 import ru.nikitaartamonov.andersenintensive.pages.third_homework.ThirdHomeworkActivity
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.fifthHomeworkMenuTextView.setOnClickListener {
             startActivity(Intent(this, FifthHomeworkActivity::class.java))
+        }
+        binding.sixthHomeworkMenuTextView.setOnClickListener {
+            startActivity(Intent(this, SixthHomeworkActivity::class.java))
         }
     }
 }
