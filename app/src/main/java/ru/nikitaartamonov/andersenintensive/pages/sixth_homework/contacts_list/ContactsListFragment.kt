@@ -3,6 +3,7 @@ package ru.nikitaartamonov.andersenintensive.pages.sixth_homework.contacts_list
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,12 +24,23 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
                     viewModel.onContactClick(contact)
                 }
 
-                override fun onLongClick(contact: Contact) {
-                    viewModel.onContactLongClick(contact)
+                override fun onLongClick(contact: Contact, anchorView: View) {
+                    showDeletePopupMenu(contact, anchorView)
                 }
             }
         }
     }
+
+    private fun showDeletePopupMenu(contact: Contact, anchorView: View) {
+        val popupMenu = PopupMenu(requireContext(), anchorView)
+        popupMenu.inflate(R.menu.contacts_list_popup_menu)
+        popupMenu.setOnMenuItemClickListener {
+            viewModel.onContactLongClick(contact)
+            true
+        }
+        popupMenu.show()
+    }
+
     private lateinit var contactsListListener: ContactsListListener
 
     override fun onAttach(context: Context) {
@@ -57,6 +69,9 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
             event.getContentIfNotHandled()?.let { contact ->
                 contactsListListener.openContactDetails(contact)
             }
+        }
+        viewModel.dispatchDiffUtilLiveData.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.dispatchUpdatesTo(adapter)
         }
     }
 

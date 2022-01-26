@@ -19,8 +19,8 @@ class ContactViewHolder(parent: ViewGroup, listener: OnContactClickListener) : R
         itemView.setOnClickListener {
             listener.onClick(currentContact)
         }
-        itemView.setOnLongClickListener {
-            listener.onLongClick(currentContact)
+        itemView.setOnLongClickListener { view ->
+            listener.onLongClick(currentContact, view)
             true
         }
     }
