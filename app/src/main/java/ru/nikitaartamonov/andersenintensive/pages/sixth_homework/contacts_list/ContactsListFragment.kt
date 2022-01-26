@@ -7,6 +7,7 @@ import android.widget.PopupMenu
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import ru.nikitaartamonov.andersenintensive.R
@@ -98,5 +99,8 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
     private fun initRecyclerView() {
         binding.contactsListRecyclerView.adapter = adapter
         binding.contactsListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val divider = DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+        divider.setDrawable(resources.getDrawable(R.drawable.recycler_view_items_divider))
+        binding.contactsListRecyclerView.addItemDecoration(divider)
     }
 }
