@@ -11,7 +11,7 @@ import ru.nikitaartamonov.andersenintensive.pages.sixth_homework.Event
 import java.util.*
 import kotlin.collections.ArrayList
 
-private const val MOCK_CONTACTS_LIST_SIZE = 10
+private const val MOCK_CONTACTS_LIST_SIZE = 101
 
 class ContactsListViewModel : ViewModel() {
 
