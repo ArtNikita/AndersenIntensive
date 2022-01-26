@@ -84,6 +84,7 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
     private fun initViewModel() {
         viewModel.setContactsLiveData.observe(viewLifecycleOwner) { contacts ->
             adapter.contactsList = contacts
+            adapter.notifyDataSetChanged()
             adapter.filterList(binding.contactSearchView.query.toString())
         }
         viewModel.openContactDetailLiveData.observe(viewLifecycleOwner) { event ->
