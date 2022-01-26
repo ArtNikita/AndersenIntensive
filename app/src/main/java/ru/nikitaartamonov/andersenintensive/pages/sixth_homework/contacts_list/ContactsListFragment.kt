@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.PopupMenu
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,7 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
 
     fun saveContact(oldContact: Contact, newContact: Contact) {
         viewModel.saveContact(oldContact, newContact)
+        adapter.filterList(binding.contactSearchView.query.toString())
     }
 
     private fun showDeletePopupMenu(contact: Contact, anchorView: View) {
@@ -61,13 +63,27 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         initViewModel()
+        initSearchView()
         viewModel.onViewIsReady()
+    }
+
+    private fun initSearchView() {
+        binding.contactSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filterList(newText)
+                return true
+            }
+        })
     }
 
     private fun initViewModel() {
         viewModel.setContactsLiveData.observe(viewLifecycleOwner) { contacts ->
             adapter.contactsList = contacts
-            adapter.notifyDataSetChanged()
+            adapter.filterList(binding.contactSearchView.query.toString())
         }
         viewModel.openContactDetailLiveData.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { contact ->
