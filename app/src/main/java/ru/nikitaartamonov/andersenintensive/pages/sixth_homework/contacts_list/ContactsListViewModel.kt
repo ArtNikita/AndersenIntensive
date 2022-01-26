@@ -60,6 +60,13 @@ class ContactsListViewModel : ViewModel() {
         val diffResult = DiffUtil.calculateDiff(diffUtil)
         dispatchDiffUtilLiveData.postValue(Event(diffResult))
     }
+
+    fun saveContact(oldContact: Contact, newContact: Contact) {
+        val oldContacts = ArrayList(contactsList)
+        val oldContactIndex = oldContacts.indexOf(oldContact)
+        contactsList[oldContactIndex] = newContact
+        updateListWithDiffUtil(oldContacts, contactsList)
+    }
 }
 
 private fun <T> LiveData<T>.postValue(value: T) {

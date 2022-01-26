@@ -31,6 +31,10 @@ class ContactsListFragment : Fragment(R.layout.fragment_contacts_recycler_list) 
         }
     }
 
+    fun saveContact(oldContact: Contact, newContact: Contact) {
+        viewModel.saveContact(oldContact, newContact)
+    }
+
     private fun showDeletePopupMenu(contact: Contact, anchorView: View) {
         val popupMenu = PopupMenu(requireContext(), anchorView)
         popupMenu.inflate(R.menu.contacts_list_popup_menu)

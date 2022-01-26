@@ -8,7 +8,7 @@ import ru.nikitaartamonov.andersenintensive.pages.fifth_homework.Contact
 import ru.nikitaartamonov.andersenintensive.pages.sixth_homework.contact_detail.ContactDetailsFragment
 import ru.nikitaartamonov.andersenintensive.pages.sixth_homework.contacts_list.ContactsListFragment
 
-class SixthHomeworkActivity : AppCompatActivity(), ContactsListListener {
+class SixthHomeworkActivity : AppCompatActivity(), ContactsListListener, ContactDetailsContract {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,5 +40,11 @@ class SixthHomeworkActivity : AppCompatActivity(), ContactsListListener {
             )
             .addToBackStack(null)
             .commit()
+    }
+
+    override fun saveContact(oldContact: Contact, newContact: Contact) {
+        val contactsListFragment = supportFragmentManager
+            .findFragmentById(R.id.contacts_list_fragment_container) as ContactsListFragment
+        contactsListFragment.saveContact(oldContact, newContact)
     }
 }
