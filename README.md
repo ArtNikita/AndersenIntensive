@@ -10,3 +10,5 @@
 Сделал AnalogClockView (custom view).
 # Homework 5
 Сделал мини приложение - контакты.
+# Homework 6
+Сделал контакты на RecyclerView
