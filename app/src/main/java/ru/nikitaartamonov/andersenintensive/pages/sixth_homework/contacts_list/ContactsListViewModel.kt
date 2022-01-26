@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.serpro69.kfaker.faker
 import ru.nikitaartamonov.andersenintensive.pages.fifth_homework.Contact
+import ru.nikitaartamonov.andersenintensive.pages.sixth_homework.Event
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -17,6 +18,7 @@ class ContactsListViewModel : ViewModel() {
     private val contactsList = generateContactsList()
 
     val setContactsLiveData: LiveData<List<Contact>> = MutableLiveData()
+    val openContactDetailLiveData: LiveData<Event<Contact>> = MutableLiveData()
 
     fun onViewIsReady() {
         setContactsLiveData.postValue(contactsList)
@@ -35,6 +37,14 @@ class ContactsListViewModel : ViewModel() {
             )
         }
         return contacts
+    }
+
+    fun onContactClick(contact: Contact) {
+        openContactDetailLiveData.postValue(Event(contact))
+    }
+
+    fun onContactLongClick(contact: Contact) {
+        TODO("Not yet implemented")
     }
 }
 
